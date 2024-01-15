@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8" />
+    <title>myGames - Multi-Players</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./static/main.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="title">
+            <h1>myGames</h1>
+            <p>v20230918</p>
+        </div>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="swiperEntry"></div>
+            <div class="swiperBtn">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+        <div class="modchange">
+            <button class="cta" onclick="location.href='index.html'">
+                <span class="hover-underline-animation">Single-Players Game</span>
+                <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
+                    id="arrow-horizontal">
+                    <path transform="translate(30)"
+                        d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10"
+                        id="Path_10"></path>
+                </svg>
+            </button>
+        </div>
+
+
+    </div>
+    <footer>
+        <p>&emsp;</p>
+        <p><a style="color: #c8c8c8" href="https://sites.google.com/mail.nknu.edu.tw/cph/home">🌏HIE Lab | Ⓖ 🚀 Ⓖ | 🛸 Ⓖ
+                | 🚜 Ⓦ&emsp;</a></p>
+        <p><a style="color: #c8c8c8" href="https://sites.google.com/mail.nknu.edu.tw/iecnknu/%E9%A6%96%E9%A0%81">
+                &emsp;🌏NKNU-IEC Ⓖ Ⓕ Ⓑ</a></p>
+        <p>© 2008-2023 Power by Po-Hsun Cheng (鄭伯壎) and Li-Wei Chen (陳立偉),</p>
+        <p>Information Education Center, National Kaohsiung Normal University, Taiwan.</p>
+        <p>Source: CHEN, YEN-YU（陳彥宇）</p>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script src="./static/gameData.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + "</span>";
+                },
+            },
+        });
+    </script>
+
+</body>
+
+</html>

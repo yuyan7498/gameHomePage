@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>B612的表面</title>
+        <audio src="C:\Users\user\Desktop\B612\小王子背景最終.mp3" autoplay loop controls>
+        </audio>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                background: black;
+            }
+            .box{
+                width: 1120px;
+                height: 560px;
+                background: url(B612/img/bg2.jpg) no-repeat;
+                margin: 100px auto;
+                position: relative;
+            }
+            .box div{
+                position:absolute;
+            }
+            .score{
+                color: white;
+                font-size: 38px;
+                font-weight: bold;
+                top: 7%;
+                left: 23%;
+            }
+            .time{
+                width: 250px;
+                height: 22px;
+                background: gold;
+                top: 22%;
+                left: 23%;
+                opacity: 0.8;
+            }
+            .pause{
+                width: 80px;
+                height: 80px;
+                background: url(B612/img/pause.jpg) no-repeat center;
+                background-size: cover;
+                top: 25pt;
+                right:50pt;
+            }
+            .start,.restart{
+                width: 235px;
+                height: 235px;
+                background: url(B612/img/restart.png) no-repeat;
+                background-size: cover;
+                left: 0; right: 0;
+                bottom: 0; top: 55;
+                margin: auto;
+                font-size: 43px;
+                line-height: 210px;
+                text-align: center;
+                color: brown;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .gameover{
+                text-align: center;
+                font-size: 70px;
+                width: 100%;
+                height: 560px;
+                line-height: 560px;
+                background: black;
+                color: white;
+                top: 0%;
+                opacity: 0.5;
+                font-weight: bold;
+            }
+            .gameover span{
+                color:aqua;
+                font-size: 72px;
+            }
+            .gameover,.restart,.pause{
+                display: none;
+            }
+            .box img{
+                position: absolute;
+                top: 130px;
+                left:76px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="score">0</div>
+            <div class="time"></div>
+            <div class="pause"></div>
+            <div class="start">start</div>
+            <div class="gameover">GAMEOVER! Your Score Is <span>0</span>
+            </div>
+            <div class="restart">restart</div>
+            <!--<img src="B612/img/王子/去背分數王子150px.png"-->
+        </div>
+        <script type="text/javascript">
+        window.onload=function (){
+            var box= document.querySelector(".box")
+            var score= document.querySelector(".score")
+            var timebox= document.querySelector(".time")
+            var pausebtn= document.querySelector(".pause")
+            var startbtn= document.querySelector(".start")
+            var restartbtn= document.querySelector(".restart")
+            var gameoverbox= document.querySelector(".gameover")
+            var s=0
+            var timer=null
+            var timewidth= timebox.offsetWidth
+            var state =true
+            item_position=[
+                {
+                    top:"130px",
+                    left:"76px"
+                },
+                {
+                    top:"230px",
+                    left:"20px"
+                },
+                {
+                    top:"342px",
+                    left:"100px"
+                },
+                {
+                    top:"243px",
+                    left:"216px"
+                },
+                {
+                    top:"153px",
+                    left:"290px"
+                },
+                {
+                    top:"90px",
+                    left:"505px"
+                },
+                {
+                    top:"227px",
+                    left:"465px"
+                },
+                {
+                    top:"332px",
+                    left:"427px"
+                },
+                {
+                    top:"307px",
+                    left:"690px"
+                },
+                {
+                    top:"178px",
+                    left:"648px"
+                },
+                {
+                    top:"111px",
+                    left:"863px"
+                },
+                {
+                    top:"239px",
+                    left:"857px"
+                },
+                {
+                    top:"339px",
+                    left:"895px"
+                },
+            ]
+            var nub=1
+            var itemtimer=null//產出小王子計時器
+            var uptimer=null//小王子出來動畫計時器
+            var downtimer=null
+            startbtn.onclick= function (){
+                this.style.display="none"
+                pausebtn.style.display="block"
+                timeReduce()
+                showItem()
+            }
+            function timeReduce(){
+                timer=setInterval(function () {
+                    timewidth--
+                    timebox.style.width=timewidth+"px"
+                    if (timewidth<=0) {
+                        clearInterval(timer)
+                        gameover()
+                    }
+                },110)
+            }
+            function gameover(){
+                restartbtn.style.display="block"
+                gameoverbox.style.display="block"
+                clearInterval(itemtimer)
+                gameoverbox.innerHTML="GAMEOVER!YOUR SCORE IS:"+s
+                restart()
+            }
+            pausebtn.onclick=function () {
+                if(state){
+                    clearInterval(timer)
+                    clearInterval(itemtimer)
+                    this.style.backgroundImage="url(B612/img/start.jpg)"
+                    state=false
+                }else{
+                    timeReduce()
+                    showItem()
+                    this.style.backgroundImage="url(B612/img/pause.jpg)"
+                    state=true
+                }
+            }
+            function addItem(){
+                var item= document.createElement("img")
+                var index= Math.floor(Math.random()*13)
+                
+                while(index==nub){
+                    index= Math.floor(Math.random()*13)
+                }
+                nub=index
+                //console.log(index)
+                console.log(item_position[index])
+                item.style.top=item_position[index].top
+                item.style.left=item_position[index].left
+                box.appendChild(item)
+                var n= Math.floor(Math.random()*10)
+                item.who=""
+                if (n>=3) {
+                    item.who="pr"
+                }else{
+                    item.who="nc"
+                }
+
+                var upindex =0 //小王子出來的編號初始值
+
+                //以下為小王子出來的動畫
+                uptimer= setInterval (function () {
+                    item.src="B612/img/prince/"+item.who+upindex+".png"
+                    upindex++
+                    if (upindex>5) {
+                        clearInterval(uptimer)
+                    }
+                },80)
+                var downindex=5
+                item.out= setTimeout(function(){
+                    downtimer=setInterval(function(){
+                        item.src="B612/img/prince/"+item.who+downindex+".png"
+                        downindex--
+                        if (downindex<0){
+                            clearInterval(downtimer)
+                            clearTimeout(item.out)
+                            box.removeChild(item)
+                        }
+                    },80)
+                },600)
+                itemko(item)
+            }
+            function showItem (){
+                itemtimer= setInterval(function(){
+                    addItem()
+                },600)
+            }
+            function itemko(item){
+                item.onclick=function(){
+                    console.log("打中"+item.who)
+                    if (item.who=="pr"){
+                        s+=1
+                    }else{
+                        s-=5
+                    }
+                    score.innerHTML=s
+                    
+                }
+            }
+            function restart(){
+                restartbtn.onclick=function (){
+                    this.style.display="none"
+                    gameoverbox.style.display="none"
+                    timewidth=250
+                    timebox.style.width=timewidth+"px"
+                    timeReduce()
+                    s=0
+                    score.innerHTML=s
+                    showItem()
+                }
+            }
+            
+        }
+        </script>
+    </body>
+</html>

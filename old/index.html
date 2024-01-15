@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Game Homepage</title>
+
+
+    <style type="text/css">
+        body {
+            margin: 0px;
+            background-color: #f0edec;
+            font-family: Comic Sans MS, Comic Sans, cursive;
+        }
+
+        body nav {
+            background-color: #485569;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding: 1vw;
+        }
+
+        body nav label {
+            font-size: 1vw;
+            margin-left: 1vw;
+        }
+
+        body nav .titleContainer {
+            text-align: center;
+            font-size: 2.5vw;
+            flex-basis: 100%;
+            margin-left: 10vw;
+        }
+
+        .pageContainer {
+            display: flex;
+        }
+
+        .pageContainer button {
+            background-color: transparent;
+            color: #e0e7ee;
+            font-size: 1.5vw;
+            border: 0px;
+            border-radius: 8%;
+        }
+
+        .pageContainer button:hover {
+            background-color: #485569;
+            border: 1px solid #ffffff;
+        }
+
+        .pageContainer button:focus {
+            outline: 0;
+        }
+
+        #btn-secpage {
+            width: 13vw;
+            height: 4vw;
+        }
+
+        #btn-exit {
+            width: 5vw;
+            height: 4vw;
+        }
+
+        .gameElementContainer {
+            padding: 3vw 5vw;
+            display: flex;
+            gap: 5vw;
+        }
+
+        .gameElement {
+            width: 11vw;
+            height: 11vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5vw
+        }
+
+        .gameElement button {
+            background-color: transparent;
+            border: 0px;
+        }
+
+        .gameElement .gameImgBtn img {
+            width: 9.5vw;
+            height: 11vw;
+        }
+
+        .gameElement .gameImgBtn img:hover {
+            cursor: pointer;
+        }
+
+        .gameElement .gameInfo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gameInfo .gameName {
+            color: #a5a09b;
+            font-size: 1.2vw;
+            font-family: Comic Sans MS, Comic Sans, cursive;
+        }
+
+        .gameInfo .gameName:hover {
+            border: 2px solid #c5c2be;
+            cursor: pointer;
+        }
+
+        .gameInfo .gameName:focus {
+            outline: none;
+        }
+
+        .gameInfo .gameAuthor {
+            color: #a5a09b;
+            font-size: 1vw;
+            font-weight: bold;
+            font-family: Microsoft JhengHei;
+        }
+
+        footer {
+            display: block;
+            position: absolute;
+            margin-top: 50%;
+            width: 100%;
+            text-align: center;
+            background-color: #485569;
+            color: #c8c8c8;
+            line-height: 1.5;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+        <label>v20230901</label>
+        <div class="titleContainer">myGames</div>
+        <div class="pageContainer">
+            <button id="btn-secpage" onclick="location.href='index2.html'">Multi-Players Game</button>
+            <button id="btn-exit"
+                onclick="location.href='https://cip.nknu.edu.tw/myBlock2/myLogin/index.html'">Exit</button>
+        </div>
+    </nav>
+
+    <main class="gameElementContainer">
+
+        <div class="gameElement">
+            <button class="gameImgBtn" onclick="location.href='dinosaur game/index.html'">
+                <img src="single-player game images/picture3.png">
+            </button>
+            <div class="gameInfo">
+                <button class="gameName" onclick="location.href='dinosaur game/index.html'">Dinosaur Game</button>
+                <label class="gameAuthor">- 趙詩越 -</label>
+            </div>
+        </div>
+
+        <div class="gameElement">
+            <button class="gameImgBtn" onclick="location.href='snowball game/index.html'">
+                <img src="single-player game images/picture1.png">
+            </button>
+            <div class="gameInfo">
+                <button class="gameName" onclick="location.href='snowball game/index.html'">Snowball Game</button>
+                <label class="gameAuthor">- 趙詩越 -</label>
+            </div>
+        </div>
+
+        <div class="gameElement">
+            <button class="gameImgBtn" onclick="location.href='space invader/index.html'">
+                <img src="single-player game images/picture2.png">
+            </button>
+            <div class="gameInfo">
+                <button class="gameName" onclick="location.href='space invader/index.html'">Space Invader</button>
+                <label class="gameAuthor">- 趙詩越 -</label>
+            </div>
+        </div>
+
+
+        <div class="gameElement">
+            <button class="gameImgBtn" onclick="location.href='ping pong game/index.html'">
+                <img src="single-player game images/picture4.png">
+            </button>
+            <div class="gameInfo">
+                <button class="gameName" onclick="location.href='ping pong game/index.html'">Ping Pong Game</button>
+                <label class="gameAuthor">- 趙詩越 -</label>
+            </div>
+        </div>
+
+        <div class="gameElement">
+            <button class="gameImgBtn" onclick="location.href='da vinci code/templates/index.html'">
+                <img src="single-player game images/picture5.png">
+            </button>
+            <div class="gameInfo">
+                <button class="gameName" onclick="location.href='da vinci code/index.html'">Da Vinci Code</button>
+                <label class="gameAuthor">- 蔡煜堃 -</label>
+            </div>
+        </div>
+
+        <div class="gameElement">
+            <button class="gameImgBtn" onclick="location.href='ClickGame/game.html'">
+                <img src="single-player game images/picture6.png">
+            </button>
+            <div class="gameInfo">
+                <button class="gameName" onclick="location.href='ClickGame/game.html'">just Click</button>
+                <label class="gameAuthor">- 林宛靜 -</label>
+            </div>
+        </div>
+
+        <div class="gameElement">
+            <button class="gameImgBtn" onclick="location.href='reactionTestYan/index.html'">
+                <img src="single-player game images/picture5.png">
+            </button>
+            <div class="gameInfo">
+                <button class="gameName" onclick="location.href='reactionTestYan/index.html'">Reaction Test</button>
+                <label class="gameAuthor">- 陳彥宇 -</label>
+            </div>
+        </div>
+
+    </main>
+
+
+
+    <footer>
+        <p>&emsp;</p>
+        <p><a style="color: #c8c8c8" href="https://sites.google.com/mail.nknu.edu.tw/cph/home">🌏HIE Lab | Ⓖ 🚀 Ⓖ | 🛸 Ⓖ
+                | 🚜 Ⓦ&emsp;</a></p>
+        <p><a style="color: #c8c8c8" href="https://sites.google.com/mail.nknu.edu.tw/iecnknu/%E9%A6%96%E9%A0%81">
+                &emsp;🌏NKNU-IEC Ⓖ Ⓕ Ⓑ</a></p>
+        <p>© 2008-2021 Power by Po-Hsun Cheng (鄭伯壎) and Li-Wei Chen (陳立偉),</p>
+        <p>Information Education Center, National Kaohsiung Normal University, Taiwan.</p>
+        <p>Source: Shih-Yueh Chao (趙詩越) and Tzu-Yin Liu (劉姿吟)</p>
+    </footer>
+
+</body>
+
+</html>

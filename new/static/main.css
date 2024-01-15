@@ -1,0 +1,145 @@
+html,
+body {
+    position: relative;
+}
+
+.content {
+    position: relative;
+    height: 100vh;
+}
+
+body {
+    background: #fff;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    background-image: url(./grid.svg);
+    background-repeat: repeat;
+    background-size: 300px 300px;
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide button {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 30vw;
+    height: 30vw;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* button */
+.cta {
+    border: none;
+    background: none;
+}
+
+.cta span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 14px;
+    padding-right: 15px;
+    text-transform: uppercase;
+}
+
+.cta svg {
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+}
+
+.cta:active svg {
+    transform: scale(0.9);
+}
+
+.hover-underline-animation {
+    position: relative;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.modchange {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+footer {
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    background-color: #687280;
+    color: #c8c8c8;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.description {
+    text-decoration: none;
+}
+
+.swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.swiper-pagination-bullet-active {
+    color: #fff;
+    background: #81a6ce;
+}
+
+.swiper-pagination {
+    position: relative;
+    padding: 100px 0 0 0;
+}

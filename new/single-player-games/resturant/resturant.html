@@ -1,0 +1,29 @@
+<html>
+
+     
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    
+    
+    
+    <body id="body" >
+        <script type="text/javascript" src="resturant/jquery-3.6.4.min.js"></script>
+        <script src="resturant/pixi.min.js"></script>
+        <script src="resturant/resturant.js"></script>
+
+        <script type="text/javascript">
+        let type = "WebGL";
+        if (!PIXI.utils.isWebGLSupported()) {
+        type = "canvas";
+        }
+
+        PIXI.utils.sayHello(type);
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="resturant/pixi.css">
+    </body>
+
+</html>
+
